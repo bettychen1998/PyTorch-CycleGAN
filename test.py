@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import argparse
 import sys
 import os
@@ -42,7 +40,7 @@ if opt.cuda:
 netG_A2B.load_state_dict(torch.load(opt.generator_A2B))
 netG_B2A.load_state_dict(torch.load(opt.generator_B2A))
 
-# Set model's test mode
+# Set model's test.py mode
 netG_A2B.eval()
 netG_B2A.eval()
 
@@ -54,7 +52,7 @@ input_B = Tensor(opt.batchSize, opt.output_nc, opt.size, opt.size)
 # Dataset loader
 transforms_ = [ transforms.ToTensor(),
                 transforms.Normalize((0.5,0.5,0.5), (0.5,0.5,0.5)) ]
-dataloader = DataLoader(ImageDataset(opt.dataroot, transforms_=transforms_, mode='test'), 
+dataloader = DataLoader(ImageDataset(opt.dataroot, transforms_=transforms_, mode='test.py'),
                         batch_size=opt.batchSize, shuffle=False, num_workers=opt.n_cpu)
 ###################################
 
